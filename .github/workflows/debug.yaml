@@ -13,5 +13,5 @@ jobs:
         uses: cypress-io/github-action@v5
         env:
           DEBUG: '@cypress/github-action'
-        with:
-          # working-directory: examples/basic
+        # with:
+        #   working-directory: examples/basic
