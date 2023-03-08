@@ -1,0 +1,17 @@
+name: example-debug
+on:
+  workflow_dispatch:
+
+jobs:
+  debug-logs:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Cypress debug logs 📝
+        uses: cypress-io/github-action@v5
+        env:
+          DEBUG: '@cypress/github-action'
+        with:
+          # working-directory: examples/basic
