@@ -1,0 +1,9 @@
+# Dependency directories
+node_modules/
+
+# auto gen by cypress run
+cypress/screenshots/*
+# gen by "cy.screenshot()"
+cypress/videos/*
+
+.DS_Store
