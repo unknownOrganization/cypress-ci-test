@@ -20,5 +20,5 @@ jobs:
         env: 
           DEBUG: '@cypress/github-action'
         with:
-          build: npx cypress run 
+          build: npm run cy:run 
           # start: npm start 
