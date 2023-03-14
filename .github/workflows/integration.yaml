@@ -18,7 +18,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v5 
         with: 
-          spec: e2e/1-getting-started/**
+          spec: cypress/e2e/1-getting-started/**
         env: 
           DEBUG: '@cypress/github-action'
         # with:
