@@ -21,6 +21,8 @@ jobs:
         #   spec: cypress/e2e/1-getting-started/**
         env: 
           DEBUG: '@cypress/github-action'
-        # with:
+        with:
+          spec: |
+            cypress/**/*-b.js
         #   build: npm run cy:run 
           # start: npm start 
