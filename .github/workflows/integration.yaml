@@ -3,7 +3,7 @@ name: Cypress Integration Test
 on:
   workflow_dispatch:
 
-permissions: read-all|write-all 
+permissions: write-all 
 jobs: 
   cypress-run: 
     runs-on: self-hosted 
