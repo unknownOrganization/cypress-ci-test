@@ -4,6 +4,7 @@ on:
   workflow_dispatch:
 
 jobs: 
+  permissions: read-all|write-all 
   cypress-run: 
     runs-on: self-hosted 
     steps: 
