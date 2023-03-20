@@ -15,6 +15,7 @@ jobs:
         with:
           node-version: 18 
       - run: echo $(pwd)
+      - run: echo $(whoami)
       # Install NPM dependencies, cache them correctly
       # and run all Cypress test
       - name: Cypress run
