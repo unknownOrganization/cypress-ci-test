@@ -16,7 +16,7 @@ jobs:
           node-version: 18 
       - run: echo $(pwd)
       - run: echo $(whoami)
-      - run: mkdir ../../../../.npm
+      - run: sudo mkdir ../../../../.npm
       # Install NPM dependencies, cache them correctly
       # and run all Cypress test
       - name: Cypress run
