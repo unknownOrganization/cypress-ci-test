@@ -32,7 +32,7 @@ jobs:
         env: 
           DEBUG: '@cypress/github-action'
         with:
-          spec: |
-            cypress/**/*-b.js
+          # spec: |
+          #   cypress/**/*-b.js
         #   build: npm run cy:run 
           # start: npm start 
