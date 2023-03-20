@@ -17,6 +17,7 @@ jobs:
       - run: echo $(pwd)
       - run: echo $(whoami)
       - run: sudo mkdir ../../../../.npm
+      - run: sudo chown runner ../../../../.npm
       # Install NPM dependencies, cache them correctly
       # and run all Cypress test
       - name: Cypress run
