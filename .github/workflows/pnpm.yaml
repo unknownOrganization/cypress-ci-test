@@ -1,0 +1,54 @@
+name: Cypress Integration Test
+
+on:
+  workflow_dispatch:
+
+# permissions: read-all/write-all 
+jobs: 
+  cypress-run: 
+    runs-on: self-hosted 
+    steps: 
+      - name: Linux Prerequisites
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update && \
+          sudo apt-get install -y libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb
+      - name: Checkout 
+        uses: actions/checkout@v3 
+      - name: Use Node.js
+        uses: actions/setup-node@v3 
+        with:
+          node-version: 18 
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 7
+          run_install: false
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+      - name: Install dependencies
+        run: pnpm install
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress test
+      - name: Cypress run
+        uses: cypress-io/github-action@v5 
+        # with: 
+        #   spec: cypress/e2e/1-getting-started/**
+        env: 
+          DEBUG: '@cypress/github-action'
+        # with:
+          # spec: |
+          #   cypress/**/*-b.js
+        #   build: npm run cy:run 
+          # start: npm start 
