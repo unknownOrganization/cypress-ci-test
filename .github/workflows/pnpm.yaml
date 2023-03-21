@@ -1,4 +1,4 @@
-name: Cypress Integration Test
+name: pnpm
 
 on:
   workflow_dispatch:
