@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 jobs:
   tests:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     name: tests
     env:
       # prevents extra Cypress installation progress messages
